@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Post;
+use App\Models\testpost;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\KamarController;
@@ -23,6 +25,20 @@ use App\Http\Controllers\PetugasAdministrasiController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/test', function () {
+    return view('test', [
+        "test" => "aku",
+        "testing" => testpost::all()
+    ]) ;
+});
+
+Route::get('/aku', function () {
+    return view('aku', [
+        "aku" => "test",
+        "testing" => "Coba"
+    ]) ;
+});
+
 
 Route::get('/', function () {
     return view('login.index', [
